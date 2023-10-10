@@ -1,4 +1,4 @@
-## Debian News Scraper
+## Convert Debian Webpage to Markdown File
 
 This project is a Python script that scrapes text from a web page and converts it into a Markdown file. It utilizes the `requests`, `BeautifulSoup`, and `markdownify` libraries to achieve this functionality.
 
@@ -7,19 +7,21 @@ This project is a Python script that scrapes text from a web page and converts i
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/debian-news-scraper.git
+   git clone https://github.com/yourusername/Debian-Contribution-Task
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd debian-news-scraper
+   cd Debian-Contribution-Task
    ```
 
 3. Install the required Python libraries using pip:
 
    ```bash
-   pip install requests beautifulsoup4 markdownify
+   pip install requests 
+   pip install beautifulsoup4 
+   pip install markdownify
    ```
 
 4. Run the script:
@@ -28,7 +30,7 @@ This project is a Python script that scrapes text from a web page and converts i
    python debian_news_scraper.py
    ```
 
-5. After running the script, a file named `debian_news.md` will be generated in the project directory containing the latest Debian news in Markdown format.
+5. After running the script, a file will be generated in the project directory containing Debian web content in Markdown format.
 
 ### Dependencies
 
