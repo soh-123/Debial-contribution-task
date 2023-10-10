@@ -15,24 +15,29 @@ def fetch_webpage_content(url):
     """
     response = requests.get(url=url, headers=HEADER).text
     soup = BeautifulSoup(response, "html.parser")
-    return soup.find("div", {"id": "page"})
+
+    for link in soup.find_all("a"):
+        href = link.get("href")
+        if href and href.startswith("/"):
+            modified_link = "https://wiki.debian.org" + href
+            link["href"] = modified_link
+    response = str(soup)
+    return response
 
 def convert_to_markdown(html_content, file_name):
     """
     Converts HTML content to markdown format and save it to a file.
     """
     markdown_content = markdownify(str(html_content))
-
+    
     with open(f"{file_name}.md", "w", encoding="utf-8") as markdown_file:
         markdown_file.write(markdown_content)
 
-# response = requests.get("https://wiki.debian.org/FrontPage", headers=HEADER).text   
-# soup = BeautifulSoup(response, "html.parser")
-# for link in soup.find_all("a"):
-#     href = link.get("href")
-#     if href and href.startswith('/'):
-#         print(href)
-wiki_page = "News"
-wiki_url = f"https://wiki.debian.org/{wiki_page}"
-content_element = fetch_webpage_content(wiki_url)
-convert_to_markdown(content_element, wiki_page)
+if __name__ == "__main__":
+    wiki_page = "News"
+    wiki_url = f"https://wiki.debian.org/{wiki_page}"
+    content_element = fetch_webpage_content(wiki_url)
+    
+
+    convert_to_markdown(content_element, wiki_page)
+
