@@ -19,15 +19,13 @@ This project is a Python script that scrapes text from a web page and converts i
 3. Install the required Python libraries using pip:
 
    ```bash
-   pip install requests 
-   pip install beautifulsoup4 
-   pip install markdownify
+   pip install -r requirements.txt
    ```
 
 4. Run the script:
 
    ```bash
-   python debian_news_scraper.py
+   python wiki.py
    ```
 
 5. After running the script, a file will be generated in the project directory containing Debian web content in Markdown format.
