@@ -1,8 +1,13 @@
-## Convert Debian Webpage to Markdown File
+## Convert HTML Webpage to Markdown File
 
-This project is a Python script that scrapes text from a web page and converts it into a Markdown file. It utilizes the `requests`, `BeautifulSoup`, and `markdownify` libraries to achieve this functionality.
+This Python project is designed to fetch webpage content from a provided URL, convert it from HTML to Markdown format, and save it to a file.
 
-### Usage
+### Features
+- Fetches webpage content from a URL.
+- Converts HTML content to Markdown format.
+- Saves the Markdown content to a file.
+
+### Installation
 
 1. Clone this repository to your local machine:
 
@@ -29,6 +34,24 @@ This project is a Python script that scrapes text from a web page and converts i
    ```
 
 5. After running the script, a file will be generated in the project directory containing Debian web content in Markdown format.
+
+### Usage
+1. Open the '**wiki.py**' file and customize the wiki_page and '**wiki_url**' variables with your desired webpage details.
+
+2. Run the script:
+
+```bash
+python wiki.py
+```
+This will fetch the webpage content, convert it to Markdown, and save it to a file.
+
+### Testing
+This project includes unit tests to verify the functionality of the HTML to Markdown conversion. You can run the tests using the following command:
+
+```bash
+python -m unittest test_wiki.py
+ ```
+
 
 ### Dependencies
 
