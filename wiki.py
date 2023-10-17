@@ -23,7 +23,6 @@ def fetch_webpage_content(url):
             modified_link = "https://wiki.debian.org" + href
             link["href"] = modified_link
     response = str(soup)
-    print(response)
     return response
 
 
