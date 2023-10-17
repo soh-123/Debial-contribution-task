@@ -1,14 +1,11 @@
-name: Python CI/CD
+name: Debia Wiki Task
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
-  my_job:
+  build:
     name: deploy to staging
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
@@ -20,13 +17,16 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: python -m pip install --upgrade pip
         run: pip install -r requirements.txt
 
       - name: Run tests
-        run: python -m unittest discover
+        run: python -m unittest
 
-      - name: Deploy to Production
-        if: github.ref == 'refs/heads/main'
-        run: |
-          # Your deployment script or commands go here
+      - name: Generate Markdown
+        run: python wiki.py
+
+      - name: Upload Markdown file
+        uses: actions/upload-artifact@v2
+        with:
+          name: markdown-output
+          path: test_output.md
